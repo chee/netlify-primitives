@@ -15,14 +15,8 @@ jobs:
     timeout-minutes: 30
     strategy:
       matrix:
-        os: [ubuntu-latest, macOS-latest, windows-latest]
-        node-version: ['*']
-        include:
-          - os: ubuntu-latest
-            # Many of our dependencies require 20.6.0, so we use the same minimum.
-            # But there is a blocking bug in 20.6.0, fixed in 20.6.1:
-            # https://github.com/nuxt/nuxt/issues/23020#issuecomment-1719828889
-            node-version: '20.6.1'
+        os: [ubuntu-latest, macOS-latest, windows-2025]
+        node-version: ['22']
       fail-fast: false
     steps:
       # Increasing the maximum number of open files. See:
@@ -59,7 +53,7 @@ jobs:
     timeout-minutes: 30
     strategy:
       matrix:
-        os: [ubuntu-latest, macOS-latest, windows-latest]
+        os: [ubuntu-latest, macOS-latest, windows-2025]
       fail-fast: false
     steps:
       - run: git config --global core.symlinks true
